@@ -12,6 +12,20 @@ const SAMPLE_LIBRARY = {
     { note: 'F#',  octave: 4, file: 'Samples/Grand Piano/piano-f-f#4.wav' },
     { note: 'F#',  octave: 5, file: 'Samples/Grand Piano/piano-f-f#5.wav' },
     { note: 'F#',  octave: 6, file: 'Samples/Grand Piano/piano-f-f#6.wav' }
+  ],
+  'Guitar': [
+    { note: 'A',  octave: 4, file: 'Samples/Guitar/guitar-f-a4.mp3' },
+    { note: 'A',  octave: 5, file: 'Samples/Guitar/guitar-f-a5.mp3' },
+    { note: 'A',  octave: 6, file: 'Samples/Guitar/guitar-f-a6.mp3' },
+    { note: 'C',  octave: 4, file: 'Samples/Guitar/guitar-f-c4.mp3' },
+    { note: 'C',  octave: 5, file: 'Samples/Guitar/guitar-f-c5.mp3' },
+    { note: 'C',  octave: 6, file: 'Samples/Guitar/guitar-f-c6.mp3' },
+    { note: 'D#',  octave: 4, file: 'Samples/Guitar/guitar-f-d#4.mp3' },
+    { note: 'D#',  octave: 5, file: 'Samples/Guitar/guitar-f-d#5.mp3' },
+    { note: 'D#',  octave: 6, file: 'Samples/Guitar/guitar-f-d#6.mp3' },
+    { note: 'F#',  octave: 4, file: 'Samples/Guitar/guitar-f-f#4.mp3' },
+    { note: 'F#',  octave: 5, file: 'Samples/Guitar/guitar-f-f#5.mp3' },
+    { note: 'F#',  octave: 6, file: 'Samples/Guitar/guitar-f-f#6.mp3' }
   ]
 };
 
@@ -24,7 +38,14 @@ const LOOPS = [
   {instrument: 'Grand Piano', note: 'Db5', duration: 18.5, delay: 12.6},
   {instrument: 'Grand Piano', note: 'Eb5', duration: 20.0, delay: 9.2},
   {instrument: 'Grand Piano', note: 'F5',  duration: 20.0, delay: 14.1},
-  {instrument: 'Grand Piano', note: 'Ab5', duration: 17.7, delay: 3.1}
+  {instrument: 'Grand Piano', note: 'Ab5', duration: 17.7, delay: 3.1},
+  {instrument: 'Guitar', note: 'F4',  duration: 19.7, delay: 4},
+  {instrument: 'Guitar', note: 'Ab4', duration: 17.8, delay: 8.1},
+  {instrument: 'Guitar', note: 'C5',  duration: 21.3, delay: 5.6},
+  {instrument: 'Guitar', note: 'Db5', duration: 18.5, delay: 12.6},
+  {instrument: 'Guitar', note: 'Eb5', duration: 20.0, delay: 9.2},
+  {instrument: 'Guitar', note: 'F5',  duration: 20.0, delay: 14.1},
+  {instrument: 'Guitar', note: 'Ab5', duration: 17.7, delay: 3.1}
 ];
 
 const LANE_COLOR = 'rgba(220, 220, 220, 0.3)';
@@ -105,7 +126,7 @@ function render() {
   context.strokeStyle = '#888';
   context.lineWidth = 1;
   context.moveTo(325, 325);
-  context.lineTo(650, 325);
+  context.lineTo(650, 325); 
   context.stroke();
 
   context.lineWidth = 30;
@@ -128,6 +149,8 @@ function render() {
     context.stroke();
 
     radius -= 35;
+    radius+=280;
+    radius%=280;
   }
   if (playingSince) {
     requestAnimationFrame(render);
